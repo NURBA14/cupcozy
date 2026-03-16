@@ -14,6 +14,9 @@
         </div>
     </div>
     
+    @include("layouts.errors")
+    @include("layouts.success")
+
     <div class="container-fluid pt-5">
         <div class="container">
             <div class="section-title">
@@ -41,15 +44,16 @@
                 </div>
                 <div class="col-md-6 pb-5">
                         <h5 class="mb-4">Отправить сообщение</h5>
-                        <form>
+                        <form action="{{ route("contact.store") }}" method="POST">
+                            @csrf
                             <div class="control-group mb-3">
-                                <input type="text" class="form-control bg-transparent p-4" id="name" placeholder="Имя" />
+                                <input type="text" class="form-control bg-transparent p-4" name="name" placeholder="Имя" />
                             </div>
                             <div class="control-group mb-3">
-                                <input type="email" class="form-control bg-transparent p-4" id="email" placeholder="Номер телефона" />
+                                <input type="text" class="form-control bg-transparent p-4" name="phone" placeholder="Номер телефона" />
                             </div>
                             <div class="control-group mb-3">
-                                <textarea class="form-control bg-transparent py-3 px-4" rows="5" id="message" placeholder="Сообщение"></textarea>
+                                <textarea class="form-control bg-transparent py-3 px-4" rows="5" name="message" placeholder="Сообщение"></textarea>
                             </div>
                             <div>
                                 <button class="btn btn-primary font-weight-bold py-3 px-5" type="submit">Отправить</button>
