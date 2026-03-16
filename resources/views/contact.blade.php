@@ -47,13 +47,13 @@
                         <form action="{{ route("contact.store") }}" method="POST">
                             @csrf
                             <div class="control-group mb-3">
-                                <input type="text" class="form-control bg-transparent p-4" name="name" placeholder="Имя" />
+                                <input type="text" class="form-control bg-transparent p-4" name="name" placeholder="Имя" required/>
                             </div>
                             <div class="control-group mb-3">
-                                <input type="text" class="form-control bg-transparent p-4" name="phone" placeholder="Номер телефона" />
+                                <input type="text" class="form-control bg-transparent p-4" name="phone" placeholder="Номер телефона" required/>
                             </div>
                             <div class="control-group mb-3">
-                                <textarea class="form-control bg-transparent py-3 px-4" rows="5" name="message" placeholder="Сообщение"></textarea>
+                                <textarea class="form-control bg-transparent py-3 px-4" rows="5" name="message" placeholder="Сообщение" required></textarea>
                             </div>
                             <div>
                                 <button class="btn btn-primary font-weight-bold py-3 px-5" type="submit">Отправить</button>

@@ -14,6 +14,9 @@
         </div>
     </div>
 
+    @include("layouts.errors")
+    @include("layouts.success")
+
     <div class="container-fluid py-5">
         <div class="container">
             <div class="reservation position-relative overlay-top overlay-bottom">
@@ -38,37 +41,29 @@
                     <div class="col-lg-6">
                         <div class="text-center p-5" style="background: rgba(51, 33, 29, .8);">
                             <h1 class="text-white mb-4 mt-5">Забронируйте столик</h1>
-                            <form class="mb-5">
+                            <form class="mb-5" action="{{ route("reservation.store") }}" method="POST">
+                                @csrf
                                 <div class="form-group">
-                                    <input type="text" class="form-control bg-transparent border-primary p-4" placeholder="Имя"
-                                        required="required" />
+                                    <input type="text" name="name" id="name" class="form-control bg-transparent border-primary p-4" placeholder="Имя" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control bg-transparent border-primary p-4" placeholder="Номер телефона"
-                                        required="required" />
+                                    <input type="text" name="phone" id="phone" class="form-control bg-transparent border-primary p-4" placeholder="Номер телефона" required>
                                 </div>
                                 <div class="form-group">
                                     <div class="date" id="date" data-target-input="nearest">
-                                        <input type="text" class="form-control bg-transparent border-primary p-4 datetimepicker-input" placeholder="Дата" data-target="#date" data-toggle="datetimepicker"/>
+                                        <input type="date" name="date" id="date" class="form-control bg-transparent border-primary p-4 datetimepicker-input" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="time" id="time" data-target-input="nearest">
-                                        <input type="text" class="form-control bg-transparent border-primary p-4 datetimepicker-input" placeholder="Время" data-target="#time" data-toggle="datetimepicker"/>
+                                    <div class="time" id="time" data-target-input="nearest">                                        
+                                        <input type="time" name="time" id="time" class="form-control bg-transparent border-primary p-4 datetimepicker-input" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <select class="custom-select bg-transparent border-primary px-4" style="height: 49px;">
-                                        <option selected>Кол-во гостей</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="3">4</option>
-                                    </select>
+                                    <input type="number" name="guests" id="guests" class="form-control bg-transparent border-primary p-4" min="1" required>
                                 </div>
-                                
                                 <div>
-                                    <button class="btn btn-primary btn-block font-weight-bold py-3" type="submit">Book Now</button>
+                                    <button class="btn btn-primary btn-block font-weight-bold py-3" type="submit">Забронировать</button>
                                 </div>
                             </form>
                         </div>
